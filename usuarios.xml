@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE usuarios [
+    <!ELEMENT usuarios (usuario+)>
+    <!ELEMENT usuario (idusuario, contraseña, nombre, dni, direccion, fechanac, actividadesapuntadas?)>
+    <!ELEMENT idusuario (#PCDATA)>
+    <!ATTLIST idusuario
+              tipo (admin | moderador | normal) #REQUIRED>
+    <!ELEMENT contraseña (#PCDATA)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT dni (#PCDATA)>
+    <!ELEMENT direccion (#PCDATA)>
+    <!ELEMENT fechanac (#PCDATA)>
+    <!ELEMENT actividadesapuntadas (#PCDATA)>
+  ]>
+
+<usuarios>
+   <usuario>
+      <idusuario tipo="admin">davidperez24@usal.es</idusuario>
+      <contraseña>unacontraseña51</contraseña>
+      <nombre>David Pérez Esteban</nombre>
+      <dni>71053323K</dni>
+      <direccion>Av. de los Reyes, 2, 4ºA</direccion>
+      <fechanac>24/06/1999</fechanac>
+      <actividadesapuntadas></actividadesapuntadas>
+   </usuario>
+
+   <usuario>
+      <idusuario tipo="admin">id00739337@usal.es</idusuario>
+      <contraseña>micontraseña07</contraseña>
+      <nombre>Raúl Lorenzo Pérez</nombre>
+      <dni>71042981Y</dni>
+      <direccion>C/ Colón 35, 2ºD</direccion>
+      <fechanac>13/04/1997</fechanac>
+      <actividadesapuntadas></actividadesapuntadas>
+   </usuario>
+
+   <usuario>
+      <idusuario tipo="moderador">juanasanchez@hotmail.com</idusuario>
+      <contraseña>hjidehhr83</contraseña>
+      <nombre>Juana Sánchez López</nombre>
+      <dni>469234467E</dni>
+      <direccion>C/ Principal, 3, 2ºD</direccion>
+      <fechanac>21/10/1996</fechanac>
+      <actividadesapuntadas></actividadesapuntadas>
+   </usuario>
+   
+   <usuario>
+      <idusuario tipo="normal">miguelrodig@gmail.es</idusuario>
+      <contraseña>kieuer36fj</contraseña>
+      <nombre>Miguel Rodriguez Iglesias</nombre>
+      <dni>19373429Y</dni>
+      <direccion>C/ Napoleón, 47, 5ºB</direccion>
+      <fechanac>03/02/1995</fechanac>
+      <actividadesapuntadas></actividadesapuntadas>
+   </usuario>
+   
+</usuarios>

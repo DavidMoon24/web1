@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE actividades SYSTEM "actividades.dtd">
+<actividades>
+  <actividad>
+      <titulo>Castillos Hinchables</titulo>
+      <categoria tipo="ocio">
+        <subcategoria tipo="niños"></subcategoria>
+      </categoria>
+      <edad limite="14"></edad>
+      <fecha dia="sabado">
+        <hora_inicio>10:00</hora_inicio>
+        <hora_final>14:00</hora_final>
+      </fecha>
+      <lugar ciudad="Zamora">Plaza Mayor</lugar>
+      <comentario></comentario>
+      <precio>0</precio>
+  </actividad>
+  
+  <actividad>
+      <titulo>Excursión a Disneyland</titulo>
+      <categoria tipo="viajes">
+        <subcategoria tipo="extranjero"></subcategoria>
+      </categoria>
+      <edad minima="3"></edad>
+      <fecha>02/08/2023
+        <hora_inicio></hora_inicio>
+        <hora_final></hora_final>
+      </fecha>
+      <lugar ciudad="Paris"></lugar>
+      <comentario></comentario>
+      <precio tipo="unitario">120</precio>
+  </actividad>
+
+  <actividad>
+      <titulo>Baile contemporáneo</titulo>
+      <categoria tipo="clases">
+        <subcategoria tipo="bailes"></subcategoria>
+      </categoria>
+      <edad minima="7"></edad>
+      <fecha dia="miércoles">
+        <hora_inicio>18:00</hora_inicio>
+        <hora_final>20:00</hora_final>
+      </fecha>
+      <lugar ciudad="Salamanca">C/Arapiles, 28</lugar>
+      <comentario></comentario>
+      <precio tipo="mensual">40</precio>
+  </actividad>
+
+  <actividad>
+      <titulo>Feria del Queso</titulo>
+      <categoria tipo="eventos">
+        <subcategoria></subcategoria>
+      </categoria>
+      <edad></edad>
+      <fecha tipo="inicial">07/10/2022</fecha>
+      <fecha tipo="final">15/10/2022</fecha>
+      <hora_inicio></hora_inicio>
+      <hora_final></hora_final>
+      <lugar ciudad="Zamora">Parque de la Marina</lugar>
+      <lugar ciudad="Zamora">Santa Clara</lugar>
+      <lugar ciudad="Zamora">Plaza Mayor</lugar>
+      <comentario></comentario>
+      <precio></precio>
+  </actividad>
+  
+</actividades>

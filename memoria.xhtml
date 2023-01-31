@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="language" content="es"/>
+<meta name="Revisit" content="0 days"/>
+<meta name="REVISIT-AFTER" content="0 days"/>
+<meta name="robots" content="all"/>
+<style type="text/css">
+body {
+  font-family:tahoma,arial;
+  font-size:14pt;
+  text-align:justify;
+  margin:1em;
+  background:#FFF7F7; color:#000010;
+}
+h1,h2,h3 { display:block; font-weight:bold; margin:1.5em 0 0.5em 0; }
+h1 { font-size:2.0em; text-align:center;}
+h2 { font-size:1.25em; text-align:justify; text-decoration:underline;}
+h3 { font-size:1.0em; text-align:justify;}
+ol, ul {  margin-left:0px; padding-left:1.5em;}
+ul, .lista-guion { list-style:disc outside url("Bloque01 - Ejemplo - lista-guion.png");}
+.lista-circulo { list-style:circle outside none;}
+.lista-punto { list-style:disc outside none;}
+.lista-cuadrado { list-style:square outside none;}
+.lista-separador { list-style:none; height:1em;}
+.lista-asterisco3 { list-style:circle inside url("Bloque01 - Ejemplo - lista-asterisco3.png"); padding-left:0em;}
+.lista-indice { list-style:decimal outside none;}
+
+span { font-weight:bold; }
+codigo, .codigo { display:none; }
+pre { background-color:#F0F080; border:2px solid #F08080; width:80%; margin:auto; font-size:0.75em;}
+
+pantalla { display:block; background-color:#0F0F0F; border:2px solid #208020; width:100%; height:550px; margin:auto; padding:5px; font-size:0.75em;}
+pantalla iframe { width:100%; height:100%; overflow:auto; border:0px solid #208020;}
+
+pieza { display:block; background-color:#0F0F0F; width:100%; border:none; margin:auto; padding:0px; font-size:0.75em; text-align:center;}
+pieza iframe { width:100%; height:100%; overflow:auto; border:none; margin:auto;}
+
+img {
+	width: 80%;
+	height: auto;
+}
+
+div {
+	text-align: center;
+}
+
+</style>
+
+<title>Desarrollo de Aplicaciones Web - Bloque 1 - Portal web de actividades infantiles</title>
+</head>
+<body>
+<h1>Desarrollo de Aplicaciones Web - Familias Inquietas</h1>
+
+
+<h2>Especificación y Boceto de Aplicación Web</h2>
+
+<h2>Objetivos:</h2>
+<p>Se pretende desarrollar una página web que ofrezca distintas actividades para niños acompañados de un adulto. La web permitirá apuntarse a alguna actividad mediante un registro de usuario. Las actividades serán gestionadas por unos administradores para restringir la edad mínima, si fuera necesario, y para clasificarlas por categorías. Al finalizar una actividad se enviará una encuesta a los usuarios que la hayan realizado para saber su grado de satisfacción.</p>
+
+
+<h2>Requisitos:</h2>
+<ol>
+<li><h3>Funciones para gestionar distintos tipos de usuarios:</h3>
+  <ul class="lista-guion">
+    <li>Registrarse como nuevo usuario.</li>
+    <li class="lista-separador"></li>
+    <li>Acceder como usuario existente.</li>
+    <li class="lista-separador"></li>
+    <li>Inicio de Sesión de Usuario, es decir, acceso de un usuario a la aplicación introduciendo su "login" y "contraseña".</li>
+    <li class="lista-separador"></li>
+    <li>Ver Perfil de Usuario</li>
+  </ul>
+</li>
+
+<li><h3>Datos mínimos a guardar de un usuario:</h3>
+  <ul class="lista-punto">
+    <li><span>idusuario</span>: identificador interno del usuario, que debe ser único, en este caso es el correo electrónico, que sirve para iniciar sesión también. Este valor toma los tipos <span>admin</span>, <span>moderador</span> o <span>normal</span> para obtener los permisos correspondientes.</li>
+    <li><span>contraseña</span>: contraseña del usuario para el control de acceso al iniciar la sesión, codificada con el algoritmo MD5 para que no sea visible por cualquiera que acceda a la base de datos, y tenga un minimo de seguridad.</li>
+    <li><span>nombre</span>: texto con el nombre y apellidos del usuario.</li>
+    <li><span>dni</span>: Documento DNI del usuario para identificarlo en caso de tener que registrarlo en algún documento del Estado.</li>
+	<li><span>direccion</span>: indica el domicilio del usuario para localizarlo en caso de tener que recibir correos o rgistrarlo en algún documento oficial.</li>
+    <li><span>fechanac</span>: corresponde a la fecha de nacimiento del usuario para confirmar que es mayor de edad y puede apuntarse en actividades.</li>
+	<li><span>actividadesapuntadas</span>: este campo sirve para almacenar todas las actividades a las que el usuario está apuntado actualmente.</li>
+	
+  </ul>
+</li>
+
+<li><h3>Funciones para manejar las actividades:</h3>
+  <ul class="lista-guion">
+    <li>Hojear actividades, con opciones de Búsqueda por el nombre concreto o por categorías y subcategorías.</li>
+	<li>Hojear la lista de actividades vigentes, por secciones o categorías.</li>
+    <li class="lista-separador"></li>
+    <li>Crear actividad, para añadir una actividad a la página.</li>
+	<li>Editar actividad, para modificar los datos de una actividad de la base de datos.</li>
+	<li>Eliminar actividad, para quitar de forma permanente una actividad de la página.</li>
+    <li class="lista-separador"></li>
+    <li>Clasificar las actividades por grupos, para ir directamente a la sección de actividades que se desee.</li>
+	<li>Añadir descripción a una actividad, para describir detalladamente las características de una actividad.</li>
+	<li>Añadir un botón para apuntarse a una actividad, indicando el nombre y número de participantes.</li>
+  </ul>
+</li>
+
+<li><h3>Datos mínimos a guardar de una actividad:</h3>
+  <ul class="lista-punto">
+    <li><span>idactividad</span>: identificador interno de la actividad, debe ser único.</li>
+    <li><span>nombre</span>: lista de palabras que describen a la actividad.</li>
+    <li><span>categoría</span>: este campo indica el tipo de la actividad, pudiendo tomar solamente los valores <span>eventos</span>, <span>ocio</span>, <span>viajes</span> o <span>clases</span>.</li>
+    <li><span>edad</span>: rango de edad que tiene una actividad, tiene los subcampos opcionales <span>edad_min</span> y <span>edad_max</span>, para indicar la edad mínima y máxima respectivamente, si fuese necesario.</li>
+    <li><span>fecha</span>: indica el periodo que se produce la actividad, puede indicarse con los tipos <span>inicio</span> y <span>final</span>, en caso de durar más de un día, rellenando solamente el subcampo <span>día</span>, o en el caso de ser una sola jornada, rellenando los subcampos <span>dia</span>, <span>mes</span> y <span>año</span>. En ambos se deberá especificar la <span>hora_inicio</span> y la <span>hora_final</span>.</li>
+    <li><span>lugar</span>: indica la localización donde se producirá la actividad, completando los subcampos <span>calle</span> y <span>localidad</span>.</li>
+    <li><span>precio</span>: importe a pagar por persona, en caso de ser de tipo <span>unitario</span> será general, para establecer otros tipos de precios se usarán los tipos <span>adulto</span> para más de 16 años, <span>niño</span> para menos de 8 años y <span>joven</span> para los que tienen entre 8 y 16 años, pudiendo no haber ninguno, alguno o todos los tipos.</li>
+    <li><span>comentario</span>: campo que guarda los comentarios de los usuarios, en caso de haberlos.</li>
+	
+  </ul>
+</li>
+</ol>
+
+
+<h2>Modelo de Datos:</h2>
+	<ul>
+		<li>Al registrar un usuario, se deberá indicar en la base de datos si es un usuario normal o con permisos especiales para que al iniciar sesión se muestre la página de actividades normal o la que tiene las funciones especiales de añadir, editar o eliminar una actividad o comentario, en este último caso de ser un administrador o moderador.</li>
+		<li class="lista-separador"></li>
+		<li>Al finalizar el periodo de una actividad en la que un usuario se ha apuntado mostrar automáticamente la página de valoración de la actividad al iniciar sesión.</li>
+	</ul>
+
+
+<h2>Descripción Semántica de los Datos en XML:</h2>
+<p>Como ejemplos de descripción semántica, se hace un boceto de cada clase de dato...</p>
+
+<h3>Usuarios:</h3>
+<div class="codigo"><![CDATA[
+<usuarios>
+   <usuario>
+      <idusuario tipo="admin">davidperez24@usal.es</idusuario>
+      <contraseña>unacontraseña51</contraseña>
+      <nombre>David Pérez Esteban</nombre>
+      <dni>71053323K</dni>
+      <direccion>Av. de los Reyes, 2, 4ºA</direccion>
+      <fechanac>24/06/1999</fechanac>
+      <actividadesapuntadas></actividadesapuntadas>
+   </usuario>
+  ...
+</usuarios>
+]]></div>
+<pre class="xml">
+&lt;usuarios&gt;
+  &lt;usuario&gt;
+    &lt;idusuario tipo="admin"&gt;davidperez24@usal.es&lt;/idusuario&gt;
+    &lt;contraseña&gt;unacontraseña51&lt;/contraseña&gt;
+    &lt;nombre&gt;David Pérez Esteban&lt;/nombre&gt;
+    &lt;dni&gt;71053323K&lt;/dni&gt;
+    &lt;direccion&gt;Av. de los Reyes, 2, 4ºA&lt;/direccion&gt;
+    &lt;fechanac&gt;24/06/1999&lt;/fechanac&gt;
+    &lt;actividadesapuntadas&gt;&lt;/actividadesapuntadas&gt;
+  &lt;/usuario&gt;
+  ...
+&lt;/usuarios&gt;
+
+</pre>
+
+<h3>Actividades:</h3>
+<div class="codigo"><![CDATA[
+<actividades>
+    <actividad>
+    <idactividad>castilloshinchables</idactividad>
+    <nombre>Castillos Hinchables</nombre>
+    <categoria tipo="ocio">
+      <subcategoria tipo="niños"></subcategoria>
+    </categoria>
+    <edad>
+      <edad_min>3</edad_min>
+      <edad_max>14</edad_max>
+    </edad>
+    <fecha tipo="inicio">
+      <dia>3/12/2022</dia>
+    </fecha>
+    <fecha tipo="final">
+      <dia>4/12/2022</dia>
+    </fecha>
+    <fecha>
+      <hora_inicio>10:00</hora_inicio>
+      <hora_final>14:00</hora_final>
+    </fecha>
+    <lugar>
+      <calle>Plaza de la Marina</calle>
+      <localidad>Zamora</localidad>
+    </lugar>
+    <precio></precio>
+    <comentario></comentario>
+  </actividad>
+  ...
+</actividades>
+]]></div>
+<pre class="xml">
+&lt;actividades&gt;
+    &lt;actividad&gt;
+    &lt;idactividad&gt;castilloshinchables&lt;/idactividad&gt;
+    &lt;nombre&gt;Castillos Hinchables&lt;/nombre&gt;
+    &lt;categoria tipo="ocio"&gt;
+      &lt;subcategoria tipo="niños"&gt;&lt;/subcategoria&gt;
+    &lt;/categoria&gt;
+    &lt;edad&gt;
+      &lt;edad_min&gt;3&lt;/edad_min&gt;
+      &lt;edad_max&gt;14&lt;/edad_max&gt;
+    &lt;/edad&gt;
+    &lt;fecha tipo="inicio"&gt;
+      &lt;dia&gt;3/12/2022&lt;/dia&gt;
+    &lt;/fecha&gt;
+    &lt;fecha tipo="final"&gt;
+      &lt;dia&gt;4/12/2022&lt;/dia&gt;
+    &lt;/fecha&gt;
+    &lt;fecha&gt;
+      &lt;hora_inicio&gt;10:00&lt;/hora_inicio&gt;
+      &lt;hora_final&gt;14:00&lt;/hora_final&gt;
+    &lt;/fecha&gt;
+    &lt;lugar&gt;
+      &lt;calle&gt;Plaza de la Marina&lt;/calle&gt;
+      &lt;localidad&gt;Zamora&lt;/localidad&gt;
+    &lt;/lugar&gt;
+    &lt;precio&gt;&lt;/precio&gt;
+    &lt;comentario&gt;&lt;/comentario&gt;
+  &lt;/actividad&gt;
+  ...
+&lt;/actividades&gt;
+
+</pre>
+
+
+<h2>Plantilla General:</h2>
+<p>Un boceto de plantilla general para la aplicación podría venir dado con la siguiente definición XML:</p>
+
+<pre class="xml">
+&lt;aplicacion&gt;
+  &lt;informacion&gt;
+    &lt;titulo&gt;Familias Inquietas, logotipo, etc...
+    &lt;/titulo&gt;
+    &lt;actividades&gt;Actividades disponibles actualmente
+    &lt;/actividades&gt;
+  &lt;/informacion&gt;
+  &lt;menu&gt;
+    &lt;acciones&gt;
+      &lt;accion&gt;Iniciar Sesión
+      &lt;/accion&gt;
+      &lt;accion&gt;Registrarse
+      &lt;/accion&gt;
+      &lt;accion&gt;Actividades
+      &lt;/accion&gt;
+      &lt;accion&gt;Buscar Actividades
+      &lt;/accion&gt;
+      &lt;salto/&gt;
+    &lt;/acciones&gt;
+  &lt;/menu&gt;
+&lt;/aplicacion&gt;
+
+</pre>
+
+
+<h2>Plantillas de Contenido:</h2>
+
+<div>
+
+<p>Página inicial:</p>
+<img src="memoria/inicio.png" alt="pagina_inicial"/>
+
+<p>Página de actividades de un usuario normal:</p>
+<img src="memoria/actividades.png" alt="pagina_actividades"/>
+
+<p>Página de actividades de un usuario moderador o administrador:</p>
+<img src="memoria/actividadesmod.png" alt="pagina_actividades_mod"/>
+
+<p>Página de registro:</p>
+<img src="memoria/registro.png" alt="pagina_registro"/>
+
+<p>Página de una actividad:</p>
+<img src="memoria/actividad.png" alt="pagina_actividad"/>
+
+
+<h2>Piezas de Contenido de Datos:</h2>
+
+<p>Página para apuntarse a una actividad:</p>
+<img src="memoria/apuntarse.png" alt="apuntarse"/>
+
+<p>Página para realizar el pago:</p>
+<img src="memoria/pago.png" alt="pago"/>
+
+<p>Página para añadir una actividad:</p>
+<img src="memoria/añadiractividad.png" alt="pagina_añadir"/>
+
+<p>Página para editar una actividad:</p>
+<img src="memoria/editaractividad.png" alt="pagina_editar"/>
+
+<p>Página para eliminar una actividad:</p>
+<img src="memoria/eliminaractividad.png" alt="pagina_eliminar"/>
+
+
+<h2>Piezas de Contenido General:</h2>
+
+<p>Página para hacer una valoración:</p>
+<img src="memoria/valoracion.png" alt="valoracion"/>
+
+</div>
+
+<h2>Mapa de la Aplicación:</h2>
+	<ul>
+		<li>Al apuntarse a una actividad, se redigirá a la página para iniciar sesión, que comprobará si hay una sesión iniciada y, en el caso de haberla, redirigirá a la página de pago, en caso de tener un precio. La actividad se registrará en las actividades apuntadas del usuario.</li>
+		<li class="lista-separador"></li>
+		<li>En la página de actividades, arriba a la izquierda se sitúa un botón para volver a la página anterior. Además, posee un cuadro de comentarios para escribir lo deseado acerca de la actividad que se está viendo.</li>
+		<li class="lista-separador"></li>
+		<li>Se muestran diferentes botones dependiendo de si es un usuario normal o con permisos especiales, pero el diseño de la página no cambia para ninguno.</li>
+	</ul>
+<h3>Boceto de Pantalla de Acceso al Sistema:</h3>
+
+<div>
+<img src="memoria/login.png" alt="pagina_inicio_sesion"/>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+	font-family: "Nerko One", serif;
+ background: #f2f2f2;
+}
+/*Banner superior*/
+.nav{
+	 margin-top:-10px;
+background: rgb(255,255,255);
+	list-style:none;
+	text-align:center;
+	padding: 20px 0 20px 0;
+	font-size:60px;
+	text-shadow: 2px 2px #ffffff;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.nav > li{
+	display: inline-block;
+	padding:0 25px 0 25px;
+	box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+	}
+
+.nav > li> a{
+	text-decoration:none;
+	padding:0 25px 0 25px;
+		color: #000000;
+		 
+}
+
+/*con hover establecemos el color que se mostrará en los enlaces del banner superior cuando pongamos el cursor encima*/
+.nav > li> a:hover{
+ 
+		color: #c1c1c1;
+}
+
+
+/*Barra de búsqueda*/
+.search {
+  
+  position: relative;
+  display: flex;
+}
+
+/*Aquí configuramos la barra de busqueda:su anchura, los bordes, su color, su altura, etc.*/
+.searchTerm {
+  width: 100%;
+  border: 3px solid #ffffff;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 5px 5px 5px;
+  outline: none;
+  color: #9DBFAF;
+ 
+}
+
+/*Establecemos el color de las letras cuando escribamos en la barra de búsqueda*/
+.searchTerm:focus{
+  color: #000000;
+  
+}
+
+
+
+/*Cambiar el tamaño del wrap para ver el cambio de la barra de búsqueda*/
+.wrap{
+  width: 58%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ 
+ /*En section_top controlamos la animación del fondo, el posicionamiento de la imagen, el tipo de transición y su duración*/
+.Section_top{
+ 
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 22s  infinite ease-in-out;
+ 
+	
+}
+
+/*Dentro de content está el titulo y la barra de búsqueda*/ 
+
+
+.content{
+	color: #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	
+    
+}
+/*Editamos el titulo del centro de la página, estableciendo su color, que este en mayusculas, su  sombreado, etc.*/
+.content h1{
+    color: #000000;
+    font-size: 90px;
+    letter-spacing: 15px;
+ text-transform: uppercase;
+	
+ text-shadow: 2px 2px #ffffff;
+}
+
+
+
+ /*Con los keyframes establecemos como transicionan las imágenes*/
+ 
+ /*Precargamos la siguiente imágen en cada transición para evitar un fallo de flickering en el pirmer ciclo de las imágenes, 
+ esto se producía porque la página tenía que ir cargando las imágenes segun iban transicionando provocando así un parpadeo en cada cambio de imágen*/
+@keyframes change{
+    0%
+    {
+        background-image: url(fotos/viajes.jpg), url(fotos/primera.jpg);
+ 
+    }
+    20%
+    {
+        background-image: url(fotos/primera.jpg), url(fotos/rio.jpg);
+ 
+    }
+    40%
+    {
+        background-image: url(fotos/rio.jpg), url(fotos/main.jpg);
+ 
+    }
+    60%
+    {
+       background-image: url(fotos/main.jpg), url(fotos/cuerda.jpg);
+ 
+ 
+    }
+    80%
+    {
+        background-image: url(fotos/cuerda.jpg), url(fotos/carpa.jpg);
+ 
+    }
+    100%
+    {
+        background-image: url(fotos/carpa.jpg);
+ 
+    }
+}
+/*Establecemos el footer típico de este tipo de páginas*/
+footer{
+	text-align: center;
+   position:absolute ;
+	top: 95%;
+    left: 39.2%;
+	 text-shadow: 2px 2px #ffffff;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" >
+  <title>Familias inquietas</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Space+Mono' rel='stylesheet'>
+</head>
+
+<body>
+  <!-- Utilizamos  section como contenedor del rectágulo central-->
+    <section>
+        <div class="container">
+		
+            <div class="user singinBx">
+				<!-- en este div establecemos el espacio donde se encuentran las imágenes-->
+                <div class="imgBx">
+				<!-- creamos los tres botones que utilizaremos para cambiar las imágenes-->
+				<input type="radio" id="trigger1" name="slider">
+				<!-- Utilizamos la etiqueta label, ya que se suele utilizar con interfaces-->
+				<!-- Relacionamos el input con label usando el for con el valor del id del radio para crear la asociación entre el input y el label-->
+			<label for="trigger1"></label>
+				<div class="slide bg1"></div>
+				<input type="radio" id="trigger2" name="slider" checked>
+				<label for="trigger2"></label>
+				<div class="slide bg2"></div>
+				<input type="radio" id="trigger3" name="slider">
+				<label for="trigger3"></label>
+				<div class="slide bg3"></div>
+				</div>
+				
+			
+				<!-- en este div establecemos el espacio donde se encuentra la introducción de los datos por parte del usuario y un enlace a la pagina de registro-->
+                <div class="formBx">
+				
+                    <form action="a">
+					<h2 class="titulo">Familias Inquietas</h2>
+                        <h2>Regístrate</h2>
+						<br>
+                        <input type="text" name="Email" placeholder="Email">
+						<input type="password" name="Contraseña" placeholder="Contraseña">
+						<input type="text" name="Nombre y apellidos" placeholder="Nombre y apellidos">
+						<input type="password" name="DNI" placeholder="DNI">
+						<input type="text" name="Dirección" placeholder="Dirección">
+						<input type="date" name="Fecha de nacimiento"  >
+						<br><br>
+                        <input type="Submit" name="Entrar" value="Entrar">
+                        <p class="signup">¿Ya tienes cuenta? <a href="../login/login.html">Inicia sesión</a></p>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- Establecemos el footer al final de la página, fuera del section, para que este fuera del recuadro central-->
+	<footer>
+			<p> &copy;  2022 Copyright: FamiliasInquietas.com</p>
+		</footer>
+</body>
+  
+
+</html>

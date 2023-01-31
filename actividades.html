@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Familias Inquietas: Actividades</title>
+	<link rel="icon" type="image/jpeg" href="Imagenes/niños.png">
+
+<style>
+	html, body, div, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, font, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	caption, tbody, tfoot, thead, tr, th, td {
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-size: 100%;
+		vertical-align: baseline;
+		font-family: Candara;
+	}
+	
+	@font-face {
+	  font-family: 'Nerko One';
+	  src: url(fuentes/NerkoOne-Regular.ttf);
+	  font-style: normal;
+	  font-weight: normal;
+	}
+
+	html {
+		background-image: linear-gradient(to bottom right, #79cbf1, #0c72a2);
+	}
+	
+	header, h1, h2, h3, h4, h5, id {
+		font-family: "Nerko One", serif;
+	}
+	
+	header {
+		text-align: center;
+		margin-top: 20px;
+		color: #07435e;
+		font-size: 400%;
+		font-weight: bolder;
+	}
+	
+	section {
+		margin-bottom: 200px;
+	}
+	
+	.categorias {
+		font-size: 150%;
+		font-weight: bolder;
+		text-align: right;
+		color: #ab1441;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: auto;
+		margin-bottom: auto;
+		padding: 15px;
+	}
+	
+	h1, h2, h3, h4 {
+		font-size: 150%;
+		font-weight: bolder;
+		text-align: center;
+		color: #f15a4b;
+		width: 50%;
+		font-size: 32px;
+		background-image: linear-gradient(to bottom right, white, yellow, orange);
+		 
+		 
+		border-radius: 4px;
+	}
+	
+	p {
+		font-size: 120%;
+		color: black;
+		margin-right: 500px;
+		margin-left: 10px;
+	}
+	
+	li {
+		list-style-type: square;
+		margin-left:30px;
+	}
+	
+	a {
+		text-decoration: none;
+		font-size: 120%;
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+	
+	img {
+		float: right;
+		margin-right: 5px;
+		height: 200px;
+	}
+	
+	.recuadro {
+		border-style: inset;
+		border-color: silver;
+		border-width: medium;
+	}
+	
+	@keyframes animacion_eventos {
+		0%
+		{
+			background-image: url(Imagenes/feria_queso.jpg);
+		}
+		10%
+		{
+			background-image: url(Imagenes/feria_queso.jpg), url(Imagenes/concierto_aitana.jpg);
+		}
+		50%
+		{
+			background-image: url(Imagenes/concierto_aitana.jpg), url(Imagenes/mundial.jpg);
+		}
+		80%
+		{
+			background-image: url(Imagenes/mundial.jpg), url(Imagenes/feria_queso.jpg);
+		}
+		100%
+		{
+			background-image: url(Imagenes/feria_queso.jpg);
+		}
+	}
+	
+	.evento {
+		width: 30%;
+		max-width: 400px;
+		height: 300px;
+		float: right;
+		margin-right: 30px;
+		margin-left: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border: 3px solid silver;
+		animation-duration: 15s;
+		animation-iteration-count: infinite;
+		animation-name: animacion_eventos;
+	}
+	
+
+	@keyframes animacion_ocio {
+		0%
+		{
+			background-image: url(Imagenes/castillo_hinchable.jpg), url(Imagenes/dibujo.jpeg);
+		}
+		50%
+		{
+			background-image: url(Imagenes/dibujo.jpeg), url(Imagenes/gymkana.jpg);
+		}
+		80%
+		{
+			background-image: url(Imagenes/gymkana.jpg), url(Imagenes/castillo_hinchable.jpg);
+		}
+		100%
+		{
+			background-image: url(Imagenes/castillo_hinchable.jpg);
+		}
+	}
+	
+	.ocio {
+		width: 30%;
+		max-width: 400px;
+		height: 300px;
+		float: right;
+		margin-right: 30px;
+		margin-left: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border: 3px solid silver;
+		animation-duration: 15s;
+		animation-iteration-count: infinite;
+		animation-name: animacion_ocio;
+	}
+
+	@keyframes animacion_viajes {
+		0%
+		{
+			background-image: url(Imagenes/portaventura.jpg), url(Imagenes/disneyland.jpg);
+		}
+		50%
+		{
+			background-image: url(Imagenes/disneyland.jpg), url(Imagenes/faunia.jpg);
+		}
+		80%
+		{
+			background-image: url(Imagenes/faunia.jpg), url(Imagenes/portaventura.jpg);
+		}
+		100%
+		{
+			background-image: url(Imagenes/portaventura.jpg);
+		}
+	}
+	
+	.viajes {
+		width: 30%;
+		max-width: 400px;
+		height: 300px;
+		float: right;
+		margin-right: 30px;
+		margin-left: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border: 3px solid silver;
+		position: relative;
+		animation-duration: 15s;
+		animation-iteration-count: infinite;
+		animation-name: animacion_viajes;
+	}
+	
+	@keyframes animacion_clases {
+		0%
+		{
+			background-image: url(Imagenes/baile.jpg);
+		}
+		10%
+		{
+			background-image: url(Imagenes/baile.jpg), url(Imagenes/futbol.jpg);
+		}
+		40%
+		{
+			background-image: url(Imagenes/futbol.jpg), url(Imagenes/instrumentos.jpeg);
+		}
+		65%
+		{
+			background-image: url(Imagenes/instrumentos.jpeg), url(Imagenes/ingles.jpg);
+		}
+		90%
+		{
+			background-image: url(Imagenes/ingles.jpg), url(Imagenes/baile.jpg);
+		}
+		100%
+		{
+			background-image: url(Imagenes/baile.jpg);
+		}
+	}
+	
+	.clases {
+		width: 30%;
+		max-width: 400px;
+		height: 300px;
+		float: right;
+		margin-right: 30px;
+		margin-left: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border: 3px solid silver;
+		position: relative;
+		animation-duration: 15s;
+		animation-iteration-count: infinite;
+		animation-name: animacion_clases;
+	}
+	
+	.inicio {
+		font-size: 130%;
+		float: left;
+	}
+	
+	h6{
+	margin-top:15px;
+	font-size: 115%;
+		color: black;
+		margin-bottom:10px;
+		margin-right: 500px;
+		margin-left: 10px;
+	font-weight: 400;
+	
+	}
+	
+</style>
+
+<body>
+
+<div class="inicio">
+	<a href="main.html">&larr; Inicio</a>
+</div>
+
+<header>Actividades</header>
+
+<div class="categorias">
+	<a href="#eventos">Eventos</a>
+	<a href="#ocio">Ocio</a>
+	<a href="#viajes">Viajes</a>
+	<a href="#clases">Clases</a>
+</div>
+
+<div class="ejemplo"> </div>
+
+<h1 id="eventos">Eventos</h1>
+<div class="recuadro">
+	<div class="evento"> </div>
+<section>
+	<h6>Realizamos todo tipo de eventos culturales para la diversión de los más pequeños y de los mayores. Seas de exposiciones o de conciertos, siempre tendremos un plan adecuado para ti. ¡Apúntate para vivir experiencias y conocer nueva gente!</h6>
+
+	<ul>
+		<li><a href="./actividades/feria_queso.html">Feria del Queso</a></li>
+		<li><a href="./actividades/concierto_aitana.html">Concierto de Aitana</a></li>
+		<li><a href="./actividades/historia_futbol.html">Exposición: Historia del Fútbol (Mundial 2022)</a></li>
+	</ul>
+	
+</section>
+</div>
+
+<h2 id="ocio">Ocio</h2>
+<div class="recuadro">
+	<div class="ocio"> </div>
+<section>
+	
+	<h6>Una inmensa cantidad de planes semanales para pasar un buen rato, con la compañía de tus amigos o tu familia.
+	¡No pierdas la oportunidad y ven a pasártelo bien!</h6>
+	
+	<ul>
+		<li><a href="./actividades/castillos_hinchables.html">Castillos Hinchables</a></li>
+		<li><a href="./actividades/concurso_dibujo.html">Concurso de dibujo</a></li>
+		<li><a href="./actividades/gymkana.html">Gymkana infantil</a></li>
+	</ul>
+	
+</section>
+</div>
+
+<h3 id="viajes">Viajes</h3>
+<div class="recuadro">
+	<div class="viajes"> </div>
+<section>
+	
+	<h6>Para los que siempre han querido descubrir lugares nuevos... ¡o volver a visitarlos!
+	Los mejores viajes están en esta sección para vivir una experiencia única.</h6>
+	
+	<ul>
+		<li><a href="./actividades/portaventura.html">Excursión a Portaventura</a></li>
+		<li><a href="./actividades/disneyland.html">Viaje a Disneyland Paris</a></li>
+		<li><a href="./actividades/faunia.html">Excursión a Faunia</a></li>
+	</ul>
+	
+</section>
+</div>
+
+<h4 id="clases">Clases</h4>
+<div class="recuadro">
+	<div class="clases"> </div>
+<section>
+		
+	<h6>Si prefieres aprender idiomas o ser el mejor bailarín de la ciudad ¡esta es tu sección!. Apúntate con tus amigos y divertíos aprendiendo.</h6>
+	
+	<ul>
+		<li><a href="./actividades/baile_contemporaneo.html">Baile contemporáneo</a></li>
+		<li><a href="./actividades/futbol.html">Fútbol</a></li>
+		<li><a href="./actividades/instrumentos_musicales.html">Instrumentos musicales</a></li>
+		<li><a href="./actividades/ingles.html">Inglés I</a></li>
+	</ul>
+
+</section>
+</div>
+
+</body>
+</html>
